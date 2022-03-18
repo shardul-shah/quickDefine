@@ -7,6 +7,7 @@ from nltk.metrics.distance import edit_distance
 # TODO 2: allow other grammar to exist in a word without being filtered out (not sure a good way to detect/keep such grammar for now)
 	# for now, allowing most common used such character - the hyphen " - "
 # TODO 3: allow autocorrect off option
+# TODO 5: Add definitions based on libary from Python
 
 def main():
 	# only one word for now
@@ -55,7 +56,7 @@ def autocorrect(dictionaryWords, inputWords):
 	for word in inputWords:
 		# use list comprehension to simplify things
 		distances = [(edit_distance(word, dictionaryWord, transpositions=False), dictionaryWord) for dictionaryWord in dictionaryWords] 
-		# todo: if dist = 0
+		# TODO 4: if dist = 0
 		closest = min(distances)
 		# print(closest)
 		userSuggestions.append(closest)
